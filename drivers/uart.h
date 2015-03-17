@@ -28,16 +28,23 @@
 #define UART_RX1_BUFFER_SIZE 64
 #define UART_TX1_BUFFER_SIZE 0
 
+#define UART_RX3_BUFFER_SIZE 64
+
 #define UART_RX0_BUFFER_MASK ( UART_RX0_BUFFER_SIZE - 1)
 #define UART_RX1_BUFFER_MASK ( UART_RX1_BUFFER_SIZE - 1)
+#define UART_RX3_BUFFER_MASK ( UART_RX3_BUFFER_SIZE - 1)
 
-extern uint8_t uart0_rx_tail;
-extern uint8_t uart0_rx_head;
-extern uint8_t uart0_rx_fifo[UART_RX0_BUFFER_SIZE];
+extern volatile uint8_t uart0_rx_tail;
+extern volatile uint8_t uart0_rx_head;
+extern volatile uint8_t uart0_rx_fifo[UART_RX0_BUFFER_SIZE];
 
-extern uint8_t uart1_rx_tail;
-extern uint8_t uart1_rx_head;
-extern uint8_t uart1_rx_fifo[UART_RX1_BUFFER_SIZE];
+extern volatile uint8_t uart1_rx_tail;
+extern volatile uint8_t uart1_rx_head;
+extern volatile uint8_t uart1_rx_fifo[UART_RX1_BUFFER_SIZE];
+
+extern volatile uint8_t uart3_rx_tail;
+extern volatile uint8_t uart3_rx_head;
+extern volatile uint8_t uart3_rx_fifo[UART_RX3_BUFFER_SIZE];
 
 extern void uart_init(uint8_t, uint32_t);
 extern void uart_print(uint8_t, char *);
